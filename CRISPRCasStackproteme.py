@@ -87,8 +87,8 @@ def Proteome_judge_cas(fastafolderpath,psefolderAddress,aatpfolderAddress,trifol
 
     for file in psefile_list:
         if (file in aatpfile_list) and (file in trifile_list):
-            file_ext = os.path.splitext(file)  # 将文件名和后缀分开
-            file_subname, file_type = file_ext  # 前缀，后缀
+            file_ext = os.path.splitext(file)  
+            file_subname, file_type = file_ext  
             pse_single_csv_address = os.path.join(psefolderAddress, file)
             aatp_single_csv_address = os.path.join(aatpfolderAddress, file)
             tri_single_csv_address = os.path.join(trifolderAddress, file)
@@ -130,7 +130,7 @@ def Proteome_judge_cas(fastafolderpath,psefolderAddress,aatpfolderAddress,trifol
                               'ET_0':ERT_feature[0][0], 'ET_1':ERT_feature[0][1]}, index=[1])
             CRISPRCasStackpath = os.path.join(os.path.split(os.path.realpath(__file__))[0], 'model', 'CRISPRCasStack.pkl')
             CRISPRCasStack = joblib.load(CRISPRCasStackpath)
-            x_test_probability = np.array(probability_feature.iloc[0:, :probability_feature.shape[1]])  # 每个样本的向量形式
+            x_test_probability = np.array(probability_feature.iloc[0:, :probability_feature.shape[1]])  
             CRISPRCasStack_feature = CRISPRCasStack.predict_proba(x_test_probability)
             cas_probability = round(CRISPRCasStack_feature[0][1], 3)
             if cas_probability > threshold:
