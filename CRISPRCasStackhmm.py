@@ -142,7 +142,7 @@ def Proteome_assemble_single_csv(fasta_folderpath,csv_folder,result_savepath):
         csv_path=os.path.join(csv_folder,file)
         probability=round(random.uniform(0.8,0.95),2)
         tp = pd.read_csv(csv_path)
-        file_ext = os.path.splitext(file)  # 将文件名和后缀分开
+        file_ext = os.path.splitext(file)  
         front, ext = file_ext
         fp_path=os.path.join(fasta_folderpath,front+'.fasta')
         fp = open(fp_path)
