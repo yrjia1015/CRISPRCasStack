@@ -15,7 +15,7 @@ def use_hmmscan(fasta_folderpath,tab_folder,model_folder):
     for file in file_list:
         single_fasta_path = os.path.join(fasta_folderpath,file)
         tblout_path=os.path.join(tab_folder,file.split('.')[0]+'.tab')
-        model_path=os.path.join(model_folder,'all_101.hmm')
+        model_path=os.path.join(model_folder,'all')
         os.system('hmmscan --tblout '+tblout_path+' '+model_path + ' '+ single_fasta_path)
     return 0
 
