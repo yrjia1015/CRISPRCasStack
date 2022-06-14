@@ -7,9 +7,19 @@ CRISPRCasStack is a toolkit capable of accurately identifying Cas proteins and c
 
 First you need to use CRISPRCasStack on the Linux system and in a conda environment.
 
+### Install requirements.txt
+
+```
+conda install --yes --file requirements.txt
+```
+
 ### Decompress the hmm file 
 
-Due to file upload restrictions, you will need to extract the zip file from the hmm folder to the hmm folder.
+Due to file upload restrictions, you will need to extract the zip file from the hmm folder to the hmm folder.The database is then formatted in the hmm folder with the following command.
+
+```
+hmmpress AllProfiles.hmm
+```
 
 ### Preparing the uniref50 database 
 
@@ -17,11 +27,6 @@ Due to file upload restrictions, you will need to download the uniref50(Download
 
 ```
 makeblastdb -in uniref50.fasta -parse_seqids -hash_index -dbtype prot
-```
-### Install requirements.txt
-
-```
-conda install --yes --file requirements.txt
 ```
 
 ## Using CRISPRCasStack
