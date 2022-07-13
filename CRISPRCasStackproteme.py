@@ -167,7 +167,7 @@ def Proteome_screening(mlcas_csv,hmmcas_csv,allfasta_path,finalresult_path):
         combine_mlhmm.to_csv(finalresult_path, index=False)
     else:
         for record in SeqIO.parse(all_fasta, "fasta"):
-            name = record.name
+            name = record.description
             if '|' in name:
                 name=name.replace('|','_')
             if '.' in name:
